@@ -1,0 +1,14 @@
+package com.example.retrofitget
+
+import okhttp3.Interceptor
+import okhttp3.Request
+
+class TokenInterceptor : Interceptor {
+
+    override fun intercept(chain: Interceptor.Chain): okhttp3.Response {
+        val newRequest: Request = chain.request().newBuilder()
+            .header("Authorization","Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjA1NDcwODgyNzA1NmM3NjNjZTcwODFhOTQzMGFjYmQ3Y2IwNzI3N2I2NzQ3YjlhZjI3OGMwYjM2OGE5MWE0OTAxMDBiN2Y1Y2E4YTQwMTc5In0.eyJhdWQiOiI5IiwianRpIjoiMDU0NzA4ODI3MDU2Yzc2M2NlNzA4MWE5NDMwYWNiZDdjYjA3Mjc3YjY3NDdiOWFmMjc4YzBiMzY4YTkxYTQ5MDEwMGI3ZjVjYThhNDAxNzkiLCJpYXQiOjE2ODk2MDA0NjQsIm5iZiI6MTY4OTYwMDQ2NCwiZXhwIjoxNzIxMjIyODY0LCJzdWIiOiI1OCIsInNjb3BlcyI6W119.TTZPoxbK_ReHAXx4oUI1F-dZFi01u4e099zn49GE1pz9_hkqHp2YRKMz8aUV_wTvrqnjNf9_AIqjqfNytNBFzyHC_WLoRC3v-ajynAqiV4eJAI55_4aiOc5siegjZWlZnyo2nPZzYFYjx5Ix7Pi3Ot6E3W1RM6M7KzJtA7zN8NbIizFC2uVMBjut-yiLXadNFbtGpkZVpKMWFDergQzrw9odtRmu_GIu2eoVIgCF5VP5RJGhmodXHsAe8m4m4Iaqst4OSMSKKwAEjm-pkkZEQWe06-rds8Ctb6v8GAx8NE1SFZEMwJ9eZCOtNxEEaESSFRzMQ-nm9Gq6In3B2YwjzLw_ysx4ptwwRAyPuXBtmBTXUCKdCt1KC3aHd5M3Z68Ldc2CiFWAh0OqQpFACMrZtjtcb0mzxRW_rSH2E105QPuq7_L8J-sRjQvML3ufxdhZ9rC9ZDFlgrTQRB3NdK2AbEuzIza5ZuySOssRa-PteN78rAAxN6FWHB0WwAdAG8SDCPxK09JBHzFgOHvyi3_bjFeuTnnnjs18l3-KyTmPLNT83glrI5ZG1vSgsu1WrTvUWXGO17YVH9fwc2ciQCTPk1IbDmbNtpCO2KUAH4LfpFb_tOrHbofNNcBfrppPjQnKx0cSpw_ABX5pnSSHQOFfLNOXI_j59ncwvuJS1ingL5M")
+            .build()
+        return chain.proceed(newRequest)
+    }
+}
